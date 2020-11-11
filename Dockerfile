@@ -61,3 +61,7 @@ RUN yarn install --check-files
 
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
+
+FROM rails-app as production
+
+RUN bundle exec rake assets:precompile
